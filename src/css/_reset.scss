@@ -1,0 +1,210 @@
+/* reset {{{ */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+fieldset,
+lengend,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: 'Helvetica Neue', Helvetica, STHeiTi, sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+html {
+    border: none;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-size: 16px;
+}
+@media screen and (min-width: 321px) {
+    html {
+        font-size: 18px;
+    }
+}
+@media screen and (min-width: 376px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+body {
+    word-wrap: break-word;
+    word-break: break-all;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    -webkit-user-select: none;
+    user-select: none;
+    height: 100%;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+button,
+input,
+select,
+textarea {
+    outline: none;
+}
+
+button,
+input,
+select {
+    vertical-align: middle;
+}
+
+button,
+input[type='button'],
+input[type='submit'] {
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+textarea {
+    resize: none;
+    outline: none;
+}
+
+button::-moz-focus-inner,
+input[type='reset']::-moz-focus-inner,
+input[type='button']::-moz-focus-inner,
+input[type='submit']::-moz-focus-inner,
+input[type='file'] > input[type='button']::-moz-focus-inner {
+    padding: 0;
+    border: none;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: separate;
+}
+
+th,
+td {
+    text-align: center;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+    font-style: normal;
+}
+
+a,
+img {
+    -webkit-touch-callout: none;
+}
+
+img {
+    vertical-align: middle;
+    border: none;
+}
+
+iframe {
+    vertical-align: top;
+}
+
+a {
+    outline: none;
+    &:link,
+    &:visited {
+        text-decoration: none;
+        outline: none;
+    }
+    &:hover,
+    &:active {
+        outline: none;
+    }
+}
+
+/* reset }}} */
+
+/* libs {{{ */
+
+// px对rem换算
+@function rSize($size) {
+    @return 0rem + $size /2/16
+}
+
+.clearfix {
+    *zoom: 1;
+    &:after {
+        display: block;
+        clear: both;
+        overflow: hidden;
+        height: 0;
+        content: '';
+    }
+}
+// text-align
+@each $name, $value in (l: left, c: center, r: right) {
+    .Lta#{$name} { text-align: $value }
+}
+// display
+@each $name, $value in (n: none, ib: inline-block, b: block) {
+    .Ld#{$name} { display: $value }
+}
+// margin (5-40 step 5)
+@each $name, $value in (t: top, r: right, b: bottom, l: left) {
+    @for $step from 1 through 8 {
+        .Lm#{$name}#{$step*5} {
+            margin-#{$value}: $step * 5px;
+        }
+    }
+}
+// padding (5-40 step 5)
+@each $name, $value in (t: top, r: right, b: bottom, l: left) {
+    @for $step from 1 through 8 {
+        .Lp#{$name}#{$step*5} {
+            padding-#{$value}: $step * 5px;
+        }
+    }
+}
+
+/* libs }}} */
+
+
